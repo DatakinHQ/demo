@@ -27,7 +27,7 @@ t1 = PostgresOperator(
     CREATE TABLE IF NOT EXISTS orders_7_days (
       order_id      INTEGER REFERENCES orders(id),
       placed_on     TIMESTAMP NOT NULL,
-      discount_id   STRING,
+      discount_id   INTEGER REFERENCES discounts(id),
       menu_id       INTEGER REFERENCES menus(id),
       restaurant_id INTEGER REFERENCES restaurants(id),
       menu_item_id  INTEGER REFERENCES menu_items(id),
@@ -48,7 +48,7 @@ t3 = PostgresOperator(
     postgres_conn_id='food_delivery_db',
     sql='''
     INSERT INTO orders_7_days (order_id, placed_on, discount_id, menu_id, restaurant_id, menu_item_id, category_id)
-      SELECT o.id AS order_id, o.placed_on, CONCAT("discount_", o.discount_id), m.id AS menu_id, m.restaurant_id, mi.id AS menu_item_id, c.id AS category_id
+      SELECT o.id AS order_id, o.placed_on, o.discount_id, m.id AS menu_id, m.restaurant_id, mi.id AS menu_item_id, c.id AS category_id
         FROM orders AS o
        INNER JOIN menu_items AS mi
           ON mi.id = o.menu_item_id
