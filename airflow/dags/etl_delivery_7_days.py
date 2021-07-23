@@ -31,7 +31,7 @@ t1 = PostgresOperator(
       order_delivered_on  TIMESTAMP NOT NULL,
       customer_email      VARCHAR(64) NOT NULL,
       customer_address    VARCHAR(64) NOT NULL,
-      discount_id         INTEGER REFERENCES discounts(id),
+      discount_id         VARCHAR(64),
       menu_id             INTEGER REFERENCES menus(id),
       restaurant_id       INTEGER REFERENCES restaurants(id),
       restaurant_address  VARCHAR(64) NOT NULL,
@@ -57,7 +57,7 @@ t3 = PostgresOperator(
       SELECT o.order_id, o.placed_on AS order_placed_on,
         (SELECT transitioned_at FROM order_status WHERE order_id = o.order_id AND status = 'DISPATCHED') AS order_dispatched_on,
         (SELECT transitioned_at FROM order_status WHERE order_id = o.order_id AND status = 'DELIVERED') AS order_delivered_on,
-        c.email AS customer_email, c.address AS customer_address, o.discount_id, o.menu_id, o.restaurant_id, r.address, o.menu_item_id, o.category_id, d.id AS driver_id
+        c.email AS customer_email, c.address AS customer_address, CONCAT("discount_", o.discount_id), o.menu_id, o.restaurant_id, r.address, o.menu_item_id, o.category_id, d.id AS driver_id
         FROM orders_7_days AS o
        INNER JOIN order_status AS os
           ON os.order_id = o.order_id
