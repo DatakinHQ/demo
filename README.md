@@ -6,4 +6,4 @@ This repository contains code samples demonstrating the functionality of [Dataki
 
 This repository contains the following code samples:
 
-* [`airflow`](https://github.com/DatakinHQ/demo): contains sample Airflow DAGs definitions 
+* [`airflow`](https://github.com/DatakinHQ/demo): contains sample Airflow DAG definitions 
