@@ -1,5 +1,5 @@
 from datetime import datetime
-from marquez_airflow import DAG
+from openlineage.airflow import DAG
 from airflow.operators.postgres_operator import PostgresOperator
 from airflow.utils.dates import days_ago
 
