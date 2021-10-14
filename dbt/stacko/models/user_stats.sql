@@ -32,10 +32,6 @@ select
         where owner_user_id = filtered_users.id
     ) as answers_posted,
     (
-        select count(*) from {{ ref('question_stats') }}
-        where accepted_answer_owner_user_id = filtered_users.id
-    ) as answers_accepted,
-    (
         select sum(upvote_count) from {{ ref('answer_stats') }}
         where owner_user_id = filtered_users.id
     ) as answers_posted_upvotes,
