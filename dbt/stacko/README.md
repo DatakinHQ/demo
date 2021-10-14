@@ -9,8 +9,8 @@ To use:
 2. Install dbt and the OpenLineage integration
 
 ```bash
-python3 -m venv virtualenv
-source virtualenv/bin/activate
+python3 -m venv datakin-dbt
+source datakin-dbt/bin/activate
 pip3 install dbt openlineage-dbt
 ```
 
