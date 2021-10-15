@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: stackoverflow
+    database: bigquery-public-data
+    schema: stackoverflow
+    tables:
+      - name: posts_questions
+      - name: posts_answers
+      - name: users
+      - name: votes
