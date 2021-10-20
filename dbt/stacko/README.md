@@ -11,7 +11,8 @@ To use:
 ```bash
 python3 -m venv datakin-dbt
 source datakin-dbt/bin/activate
-pip3 install pybigquery google-cloud-bigquery-storage sqlalchemy great_expectations dbt openlineage-dbt
+pip3 install pyarrow pybigquery google-cloud-bigquery-storage sqlalchemy great_expectations
+pip3 install dbt openlineage-dbt
 ```
 
 3. Run the models, passing in the URL to your OpenLineage-compatible endpoint.
