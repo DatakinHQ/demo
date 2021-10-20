@@ -19,8 +19,17 @@ pip3 install pybigquery google-cloud-bigquery-storage sqlalchemy great_expectati
 ```bash
 OPENLINEAGE_URL=http://localhost:5000 dbt-ol run
 ```
+4. Configure GE
 
-4. Run the GE checkpoint
+```bash
+% mkdir great_expectations/uncommitted
+% cat >> great_expectations/uncommitted/config_variables.yml
+stackostudy:
+  url: bigquery://stacko-study/stackostudy?credentials_path=/home/rturk/.dbt/stacko-study.json
+^D
+```
+
+5. Run the GE checkpoint
 
 ```bash
 OPENLINEAGE_URL=http://localhost:5000 great_expectations checkpoint run check_users
