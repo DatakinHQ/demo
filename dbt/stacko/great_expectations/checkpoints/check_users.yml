@@ -1,0 +1,14 @@
+name: check_users
+config_version:
+module_name: great_expectations.checkpoint
+class_name: LegacyCheckpoint
+validation_operator_name:
+batches:
+  - batch_kwargs:
+      table: user_stats
+      schema:
+      data_asset_name: user_stats
+      datasource: stackostudy
+      bigquery_temp_table: stacko-study.stackostudy.ge_tmp_1fdyarm
+    expectation_suite_names:
+      - user_stats
