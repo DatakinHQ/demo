@@ -27,7 +27,7 @@ In this example, you'll deploy a self-contained Spark application locally via **
 
 1. Modify file path to `data.txt`:
 
-   ```
+   ```diff
    -...spark.read().textFile("src/main/resources/data.txt").cache();
    +...spark.read().textFile("dbfs:/FileStore/tables/data.txt").cache();
    ```
