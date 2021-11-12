@@ -22,3 +22,22 @@ In this example, you'll deploy a self-contained Spark application locally via **
    ```
    $ ./scripts/submit-example-local.sh
    ```
+   
+## Running on Databricks
+
+1. Modify file path to `data.txt`:
+
+   ```
+   -...spark.read().textFile("src/main/resources/data.txt").cache();
+   +...spark.read().textFile("dbfs:/FileStore/tables/data.txt").cache();
+   ```
+   
+2. Then, build the `jar`:
+
+   ```bash
+   $ ./gradlew shadowJar
+   ```
+   
+   The executable can be found under `build/libs/`
+   
+2. Finally, [create](https://docs.databricks.com/jobs.html#create-a-job) and run the job on your Databricks cluster
