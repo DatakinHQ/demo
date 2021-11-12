@@ -25,19 +25,21 @@ In this example, you'll deploy a self-contained Spark application locally via **
    
 ## Running on Databricks
 
-1. Modify file path to `data.txt`:
+1. Upload the file [data.txt](https://github.com/DatakinHQ/datakin/tree/main/spark/data.txt) to HDFS by following the steps outlined in the [Databricks documentation](https://docs.databricks.com/data/data.html#import-data-1)
+
+2. Modify the file path to `data.txt`:
 
    ```diff
    -...spark.read().textFile("src/main/resources/data.txt").cache();
    +...spark.read().textFile("dbfs:/FileStore/tables/data.txt").cache();
    ```
    
-2. Then, build the `jar`:
+3. Then, build the `jar`:
 
    ```bash
    $ ./gradlew shadowJar
    ```
    
    The executable can be found under `build/libs/`
-   
-2. Finally, [create](https://docs.databricks.com/jobs.html#create-a-job) and run the job on your Databricks cluster
+
+4. Finally, upload the `jar` by [create](https://docs.databricks.com/jobs.html#create-a-job) the job on your Databricks cluster
