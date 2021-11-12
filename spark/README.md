@@ -5,7 +5,7 @@ In this example, you'll deploy a self-contained Spark application locally via **
 ## Requirements
 
 * [Java 11](https://openjdk.java.net/install)+
-* [Spark 3.0.0](https://formulae.brew.sh/formula/apache-spark)+
+* [Spark 2.4](https://formulae.brew.sh/formula/apache-spark)+
 
 ## Running the [Example](https://github.com/DatakinHQ/datakin/tree/main/spark/src/main/java/example/LinesWithAOrB.java) on Local Spark Cluster
 
