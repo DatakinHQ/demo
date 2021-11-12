@@ -1,6 +1,6 @@
 # Simple [Spark](https://spark.apache.org) Job
 
-In this example, you'll deploy a self-contained Spark application locally via **Docker**. The application counts the number lines containing `a` and the number containing `b` in a file. Note, the sample code was taken from the Spark [quickstart](https://spark.apache.org/docs/3.0.0-preview/quick-start.html) guide. 
+In this example, you'll deploy a self-contained Spark application locally via **Docker**. The application counts the number of lines containing `a` and the number of lines containing `b` in a file. Note, the sample code was taken from the Spark [quickstart](https://spark.apache.org/docs/3.0.0-preview/quick-start.html) guide. 
 
 ## Requirements
 
