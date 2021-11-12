@@ -12,7 +12,7 @@ In this example, you'll deploy a self-contained Spark application locally via **
 1. To start a local Spark cluster, run:
 
    ```bash
-   $ ./scripts/start-cluster-local.sh
+   $ docker-compose up
    ```
    
    To view the Spark UI and verify it's running, open http://localhost:8080

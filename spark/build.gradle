@@ -16,7 +16,7 @@ ext {
 }
 
 dependencies {
-  compileOnly 'org.apache.spark:spark-sql_2.11:2.4.6'
+  compileOnly 'org.apache.spark:spark-sql_2.11:2.4.8'
   compileOnly "org.projectlombok:lombok:${lombokVersion}"
   annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 }
