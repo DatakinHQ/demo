@@ -1,0 +1,63 @@
+import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
+
+plugins {
+  id 'application'
+  id 'java'
+  id 'com.diffplug.spotless' version '5.1.0'
+  id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+ext {
+  lombokVersion = '1.18.12'
+}
+
+dependencies {
+  compileOnly 'org.apache.spark:spark-sql_2.11:2.4.6'
+  compileOnly "org.projectlombok:lombok:${lombokVersion}"
+  annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
+
+compileJava {
+  options.incremental = true
+  options.compilerArgs << '-parameters'
+}
+
+task sourceJar(type: Jar) {
+    classifier 'sources'
+    from sourceSets.main.allJava
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier 'javadoc'
+    from javadoc.destinationDir
+}
+
+mainClassName = 'example.LinesWithAOrB'
+
+shadowJar {
+    baseName = project.name
+    classifier = ''
+    archiveVersion = ''
+    transform(ServiceFileTransformer)
+    manifest {
+        attributes(
+                'Created-By': "Gradle ${gradle.gradleVersion}",
+                'Built-By': System.getProperty('user.name'),
+                'Build-Jdk': System.getProperty('java.version'),
+                'Implementation-Title': project.name,
+                'Implementation-Version': project.version,
+                'Main-Class': mainClassName)
+    }
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+        removeUnusedImports()
+    }
+}
