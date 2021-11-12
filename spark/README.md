@@ -43,4 +43,4 @@ In this example, you'll deploy a self-contained Spark application locally via **
    The executable can be found under `build/libs/`
 
 5. Then, [create](https://docs.databricks.com/jobs.html#create-a-job) a job by uploading the `jar` in **Step 4** to your Databricks cluster
-6. Finally, [run](https://docs.databricks.com/jobs.html#run-a-job) your job on your Databricks cluster to begin emitting Spark lineage metadata to Datakin
+6. Finally, [run](https://docs.databricks.com/jobs.html#run-a-job) your job on your Databricks cluster to begin emitting Spark lineage metadata to Datakin!
