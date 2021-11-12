@@ -6,8 +6,8 @@
 
 set -e
 
-# Change working directory to examples/spark/
+# Change working directory to spark/
 project_root=$(git rev-parse --show-toplevel)
-cd "${project_root}/examples/spark"
+cd "${project_root}/spark"
 
 docker-compose up -V --force-recreate
