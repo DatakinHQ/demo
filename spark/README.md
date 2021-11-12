@@ -25,16 +25,16 @@ In this example, you'll deploy a self-contained Spark application locally via **
    
 ## Running on Databricks
 
-1. First, setup Datakin on Databricks by following the steps outlined in our [Databricks onboarding documentation](https://demo.datakin.com/onboarding)
+1. If you haven't already, setup Datakin on Databricks by following the steps outlined in our [Databricks onboarding documentation](https://demo.datakin.com/onboarding)
 2. Then, upload the file [data.txt](https://github.com/DatakinHQ/datakin/tree/main/spark/data.txt) to HDFS by following the steps outlined in the [Databricks documentation](https://docs.databricks.com/data/data.html#import-data-1)
-3. Modify the file path to `data.txt`:
+3. Modify the file path to `data.txt` in `LinesWithAOrB.java`:
 
    ```diff
    -...spark.read().textFile("src/main/resources/data.txt").cache();
    +...spark.read().textFile("dbfs:/FileStore/tables/data.txt").cache();
    ```
    
-4. Then, build the `jar`:
+4. Build the `jar`:
 
    ```bash
    $ ./gradlew shadowJar
@@ -42,4 +42,5 @@ In this example, you'll deploy a self-contained Spark application locally via **
    
    The executable can be found under `build/libs/`
 
-5. Finally, upload the `jar` by [creating](https://docs.databricks.com/jobs.html#create-a-job) the job on your Databricks cluster
+5. Then, [create](https://docs.databricks.com/jobs.html#create-a-job) a job by uploading the `jar` in **Step 4** to your Databricks cluster
+6. Finally, [run](https://docs.databricks.com/jobs.html#run-a-job) your job on your Databricks cluster to begin emitting Spark lineage metadata to Datakin
