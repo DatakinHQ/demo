@@ -8,19 +8,29 @@ To use:
 
 2. Install dbt and the OpenLineage integration, along with Great Expectations
 
-```bash
-python3 -m venv datakin-dbt
-source datakin-dbt/bin/activate
+If you are using an arm64 Mac, run this and wait a bit:
+
+```
+brew install openblas gfortran python3 rust postgres
+/opt/homebrew/bin/python3 -m venv dbt-ge-ol
+source dbt-ge-ol/bin/activate
+export OPENBLAS=/opt/homebrew/opt/openblas/lib/
+pip3 install cython pybind11 pythran greenlet
+pip3 install --no-binary :all: --no-use-pep517 scipy
 pip3 install pyarrow pybigquery google-cloud-bigquery-storage sqlalchemy great_expectations
 pip3 install dbt openlineage-dbt
 ```
 
-3. Run the models, passing in the URL to your OpenLineage-compatible endpoint.
+Otherwise, run this and don't wait very long at all:
 
 ```bash
-OPENLINEAGE_URL=http://localhost:5000 dbt-ol run
+python3 -m venv dbt-ge-olt
+source dbt-ge-ol/bin/activate
+pip3 install pyarrow pybigquery google-cloud-bigquery-storage sqlalchemy great_expectations
+pip3 install dbt openlineage-dbt
 ```
-4. Configure GE
+
+3. Configure GE
 
 ```bash
 % mkdir great_expectations/uncommitted
@@ -28,6 +38,13 @@ OPENLINEAGE_URL=http://localhost:5000 dbt-ol run
 stackostudy:
   url: bigquery://stacko-study/stackostudy?credentials_path=/home/rturk/.dbt/stacko-study.json
 ^D
+```
+
+4. Run the models, passing in the URL to your OpenLineage-compatible endpoint.
+
+```bash
+% dbt docs generate
+% OPENLINEAGE_URL=http://localhost:5000 dbt-ol run
 ```
 
 5. Run the GE checkpoint
