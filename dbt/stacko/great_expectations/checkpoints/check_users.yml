@@ -2,7 +2,7 @@ name: check_users
 config_version:
 module_name: great_expectations.checkpoint
 class_name: LegacyCheckpoint
-validation_operator_name:
+validation_operator_name: action_list_operator
 batches:
   - batch_kwargs:
       table: user_stats
