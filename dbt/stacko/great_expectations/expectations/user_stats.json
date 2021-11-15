@@ -1,0 +1,73 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "user_stats",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_set",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column_set": [
+          "answers_inspired",
+          "answers_posted",
+          "answers_posted_downvotes",
+          "answers_posted_upvotes",
+          "creation_date",
+          "display_name",
+          "id",
+          "last_access_date",
+          "profile_image_url",
+          "questions_posted",
+          "questions_posted_downvotes",
+          "questions_posted_upvotes"
+        ]
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "max_value": 500,
+        "min_value": 300
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "display_name"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "creation_date"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "last_access_date"
+      },
+      "meta": {}
+    },
+    {
+      "expectation_type": "expect_column_values_to_match_regex",
+      "ge_cloud_id": null,
+      "kwargs": {
+        "column": "profile_image_url",
+        "regex": "(http:|https:)+[^\\s]+[\\w]$"
+      },
+      "meta": {}
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.13.38"
+  }
+}
