@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 .idea/
+
+# Custom integration using openlineage-java
+!demo/custom/java/simple/lib/*
