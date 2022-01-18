@@ -1,0 +1,10 @@
+2022-01-18 04:52:40.853 PST [76387] FATAL:  lock file "postmaster.pid" already exists
+2022-01-18 04:52:40.853 PST [76387] HINT:  Is another postmaster (PID 76376) running in data directory "/usr/local/var/postgres"?
+2022-01-18 04:53:21.437 PST [76555] LOG:  starting PostgreSQL 14.1 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2022-01-18 04:53:21.440 PST [76555] LOG:  could not bind IPv6 address "::1": Address already in use
+2022-01-18 04:53:21.440 PST [76555] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-01-18 04:53:21.440 PST [76555] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2022-01-18 04:53:21.440 PST [76555] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2022-01-18 04:53:21.440 PST [76555] WARNING:  could not create listen socket for "localhost"
+2022-01-18 04:53:21.440 PST [76555] FATAL:  could not create any TCP/IP sockets
+2022-01-18 04:53:21.441 PST [76555] LOG:  database system is shut down
